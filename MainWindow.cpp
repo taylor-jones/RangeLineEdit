@@ -7,17 +7,20 @@
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QLabel>
+#include <QTimeEdit>
+#include <QDateTimeEdit>
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
 {
 
-    m_tabWidget = new QTabWidget;
+    m_tabWidget = new QTabWidget(this);
     setCentralWidget(m_tabWidget);
 
     setupDMSWidget();
     setupDoubleWidget();
     setupPhoneWidget();
+    setupTimeWidget();
 
 }
 
@@ -228,6 +231,25 @@ void MainWindow::setupPhoneWidget(){
     m_tabWidget->addTab(m_phoneWidget, "Phone Numbers");
 
 }
+
+void MainWindow::setupTimeWidget(){
+
+    m_timeWidget = new QWidget;
+
+    QVBoxLayout* centralVLayout = new QVBoxLayout;
+    m_timeWidget->setLayout(centralVLayout);
+
+    auto* time_edit = new QTimeEdit(m_timeWidget);
+    auto* date_time_edit = new QDateTimeEdit(m_timeWidget);
+
+    centralVLayout->addWidget(time_edit);
+    centralVLayout->addWidget(date_time_edit);
+
+    m_tabWidget->addTab(m_timeWidget, "Time");
+
+}
+
+
 
 MainWindow::~MainWindow(){
 

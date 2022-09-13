@@ -13,7 +13,8 @@ There is now also a DoubleLineEdit that allows you to manipulate a +/- decimal v
 much like Qt's QDoubleSpinBox, but has all of the features inherited from RangeLineEdit.
 
 Usage:
-```
+
+```cpp
 #include "LatitudeLineEdit.h"
 
 int decimalPrecision(4);
